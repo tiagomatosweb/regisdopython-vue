@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <div
+            v-for="user in users"
+            :key="user.id"
+            class="card m-3"
+        >
+            <div class="card-body">
+                <router-link
+                    :to="{ name: 'user-todo', params: { id: user.id }}"
+                >
+                    {{ user.name }}
+                </router-link>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    name: 'Home',
+    data() {
+        return {
+            users: [],
+        };
+    },
+
+    mounted() {
+        fetch('http://127.0.0.1:8000/api/users')
+            .then(response => response.json())
+            .then((res) => {
+                this.users = res.data;
+            });
+    },
 }
 </script>
