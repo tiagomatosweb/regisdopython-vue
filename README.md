@@ -1,4 +1,9 @@
-# spa
+# VueJS - Frontend
+
+Este material foi usado na Live do [Regis do Python](https://www.youtube.com/watch?v=BNWBAAC38SQ) no YouTube.
+
+Onde falamos sobre como [Construir uma API com VueJS e Laravel](https://www.youtube.com/watch?v=BNWBAAC38SQ).
+
 
 ## Project setup
 ```
